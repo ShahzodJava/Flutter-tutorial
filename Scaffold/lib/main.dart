@@ -28,9 +28,33 @@ class MyApp extends StatelessWidget {
                     fontFamily: 'IndieFlower'),
               ),
             ),
-            Image.asset(
-              'assets/peach.jpg',
-            ),
+            Row(mainAxisAlignment: MainAxisAlignment.center, children: const [
+              Image(
+                image: AssetImage('assets/peach.jpg'),
+                width: 100.0,
+                height: 100.0,
+              ),
+              Image(
+                image: AssetImage('assets/strowberry.jpg'),
+                width: 100.0,
+                height: 100.0,
+              ),
+            ]),
+            Row(mainAxisAlignment: MainAxisAlignment.spaceAround, children: [
+              Text('Click me'),
+              TextButton(
+                onPressed: () {},
+                child: Text('Click me'),
+                style: TextButton.styleFrom(
+                  backgroundColor: Colors.amber
+                ),
+              ),
+              Container(
+                color: Colors.cyan,
+                padding: EdgeInsets.all(30.0),
+                child: Text('Click me'),
+              )
+            ]),
             Center(
                 child: MaterialButton(
               onPressed: () {
@@ -43,9 +67,8 @@ class MyApp extends StatelessWidget {
               onPressed: () {},
               icon: Icon(Icons.mail),
               label: Text('Send'),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.lightGreen
-              ),
+              style:
+                  ElevatedButton.styleFrom(backgroundColor: Colors.lightGreen),
             ),
           ],
         ),
@@ -54,7 +77,7 @@ class MyApp extends StatelessWidget {
           backgroundColor: Colors.green,
           child: const Icon(
             Icons.add,
-            color: Colors.black,
+            color: Colors.white,
             size: 50.0,
           ),
         ),
