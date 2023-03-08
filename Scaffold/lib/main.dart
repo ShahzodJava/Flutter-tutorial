@@ -70,6 +70,34 @@ class MyApp extends StatelessWidget {
               style:
                   ElevatedButton.styleFrom(backgroundColor: Colors.lightGreen),
             ),
+            Row(
+              children: [
+                Expanded(
+                  flex: 2,
+                  child: Container(
+                    padding: EdgeInsets.all(30.0),
+                    color: Colors.cyan,
+                    child: Text('1'),
+                  ),
+                ),
+                Expanded(
+                  flex: 4,
+                  child: Container(
+                    padding: EdgeInsets.all(30.0),
+                    color: Colors.pinkAccent,
+                    child: Text('2'),
+                  ),
+                ),
+                Expanded(
+                  flex: 6,
+                  child: Container(
+                    padding: EdgeInsets.all(30.0),
+                    color: Colors.amber,
+                    child: Text('3'),
+                  ),
+                ),
+              ],
+            )
           ],
         ),
         floatingActionButton: FloatingActionButton(
