@@ -18,6 +18,12 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
 
   final _formKey = GlobalKey<FormState>();
 
+
+  final _nameFocus = FocusNode();
+  final _phoneFocus = FocusNode();
+  final _emailFocus = FocusNode();
+  final _passFocus = FocusNode();
+
   @override
   void dispose() {
     _nameController.dispose();
@@ -25,7 +31,18 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
     _emailController.dispose();
     _passController.dispose();
     _conPassController.dispose();
+
+    _nameFocus.dispose();
+    _phoneFocus.dispose();
+    _emailFocus.dispose();
+    _passFocus.dispose();
+    
     super.dispose();
+  }
+
+  void _fieldFocusChange(BuildContext context, FocusNode currentFocus, FocusNode nextFocus) {
+    currentFocus.unfocus();
+    FocusScope.of(context).requestFocus(nextFocus);
   }
 
   @override
@@ -40,6 +57,11 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
           padding: const EdgeInsets.all(16.0),
           children: [
             TextFormField(
+              focusNode: _nameFocus,
+              autofocus: true,
+              onFieldSubmitted: (_) {
+                _fieldFocusChange(context, _nameFocus, _phoneFocus);
+              },
               controller: _nameController,
               decoration: InputDecoration(
                   labelText: 'Full Name *',
@@ -78,6 +100,10 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               height: 10.0,
             ),
             TextFormField(
+              focusNode: _phoneFocus,
+              onFieldSubmitted: (_) {
+                _fieldFocusChange(context, _phoneFocus, _emailFocus);
+              },
               controller: _phoneController,
               decoration:  InputDecoration(
                 labelText: 'Phone number *',
@@ -109,6 +135,10 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               height: 10.0,
             ),
             TextFormField(
+              focusNode: _emailFocus,
+              onFieldSubmitted: (_) {
+                _fieldFocusChange(context, _emailFocus, _passFocus);
+              },
               controller: _emailController,
               decoration: const InputDecoration(
                 labelText: 'Email *',
@@ -133,6 +163,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
               height: 10.0,
             ),
             TextFormField(
+              focusNode: _passFocus,
               controller: _passController,
               obscureText: _hiddenP,
               maxLength: 8,
