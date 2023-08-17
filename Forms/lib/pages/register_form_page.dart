@@ -70,7 +70,7 @@ class _RegisterFormPageState extends State<RegisterFormPage> {
                   suffixIcon: IconButton(
                       onPressed: (){
                         setState(() {
-                          _nameController.clear();
+                               _nameController.clear();
                         });
                       },
                       icon: Icon(Icons.clear)),
