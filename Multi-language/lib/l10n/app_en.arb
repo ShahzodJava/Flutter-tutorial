@@ -2,5 +2,8 @@
   "helloWorld": "Hello World!",
   "@helloWorld": {
     "description": "The conventional newborn programmer greeting"
-  }
+  },
+  "english": "English",
+  "uzbek": "Uzbek"
+
 }
